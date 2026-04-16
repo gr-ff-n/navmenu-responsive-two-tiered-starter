@@ -3,11 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     background-color: black;
     min-height: 100%;
     z-index: 1;
 }
+
 body {
     position: relative;
     font-family: 'Josefin Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,15 +20,18 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 header {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 header a img {
     max-width: 400px;
-    margin: 1vh;
+    padding: 2vh;
 }
+
 .navmenu {
     display: block;
     background-color: rgb(61, 0, 0);
@@ -38,9 +43,11 @@ header a img {
     position: sticky;
     top: 0;
 }
-.navmenu > div {
+
+.navmenu>div {
     flex: 0 1 max-content;
 }
+
 .navmenu a {
     display: block;
     background-color: transparent;
@@ -50,6 +57,7 @@ header a img {
     padding: 2vh 1vh;
     transition: 300ms ease-in;
 }
+
 .submenu-content {
     display: none;
     position: absolute;
@@ -60,19 +68,44 @@ header a img {
     border-right: 1px solid rgb(61, 0, 0);
     border-bottom: 1px solid rgb(61, 0, 0);
 }
+
 .submenu-content a {
     text-align: left;
     padding-left: 5vh;
 
 }
+
 .submenu:hover .submenu-content {
     display: block;
 }
 
-
 .navmenu a:hover {
     background-color: black;
     color: red;
+}
+
+.submenu i {
+    transition: transform 200ms linear;
+}
+
+.submenu:hover i {
+    transform: rotate(-180deg);
+}
+
+.toggle-menu {
+    display: none;
+    z-index: 999;
+    background-color: transparent;
+    width: 25px;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    border: none;
+    background-image: url("../images/hamburger.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 section {
@@ -82,6 +115,7 @@ section {
     justify-content: center;
     align-items: center;
 }
+
 section div {
     padding: 3vw;
     display: flex;
@@ -90,6 +124,7 @@ section div {
     flex-wrap: wrap;
     gap: 2vh;
 }
+
 section img {
     max-width: 350px;
     width: 100%;
@@ -101,6 +136,7 @@ footer {
     top: 100%;
     padding: 2vh 0;
 }
+
 footer p {
     text-align: center;
     font-size: 90%;
@@ -113,15 +149,16 @@ footer p {
     header {
         justify-content: center;
     }
+
     header a img {
         max-width: 300px;
         margin: 0 auto;
     }
 
-
-    .navmenu > div {
+    .navmenu>div {
         width: 100%;
     }
+
     .submenu-content {
         background-color: transparent;
         position: relative;
@@ -130,21 +167,64 @@ footer p {
         border-left: none;
         border-right: none;
         border-bottom: none;
+        background-image: none;
     }
+
     .navmenu a {
         text-align: left;
         padding: 2vh;
         background-color: transparent;
     }
+
+    .navmenu a:hover {
+        background-color: transparent;
+    }
+
+    .navmenu {
+        display: none;
+        z-index: 99;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background-image: conic-gradient(darkblue, blue, darkblue);
+        padding-top: 20vh;
+        padding-left: 10vh;
+        transform: translateY(-100%);
+        transition: transform 200ms linear;
+    }
+
+    .toggle-menu {
+        display: block;
+    }
+
+    .toggle-menu[data-visible="true"] {
+        background-image: url(../images/closemobile.png);
+    }
+
+    .navmenu[data-visible="true"] {
+        transform: translateX(0%);
+    }
+
+    .navmenu.active {
+        display: block;
+    }
+
     .submenu-content a {
         padding-left: 5vh;
     }
+
     section {
         padding: 2vh 0;
     }
+
     section div {
         height: auto;
     }
+
     section img {
         max-width: 100%;
     }
